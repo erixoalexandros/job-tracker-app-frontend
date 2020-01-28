@@ -34,10 +34,11 @@ nav a span {
 
 .logout {
   background-color: #ce4257;
-  border-radius: 10px;
-  color: #fff;
+  border-radius: 7px;
   font-size: 1rem;
-  padding: 10px 20px;
+  padding: 10px;
+  text-align: center;
+  width: 100px;
 }
 
 .container {
@@ -60,7 +61,8 @@ nav a span {
   margin-bottom: 40px;
 }
 
-.user-form input {
+.user-form input,
+.user-form button {
   background-color: transparent;
   border-color: transparent;
   border-bottom: 1px solid #333;
@@ -73,7 +75,7 @@ nav a span {
   width: 400px;
 }
 
-.user-form input[type="submit"] {
+.user-form button {
   background-color: #c2d076;
   border-radius: 10px;
   color: #333;

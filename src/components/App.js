@@ -1,5 +1,7 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { Router, Route, Switch, Redirect } from "react-router-dom";
+import { connect } from "react-redux";
+import history from "../history";
 
 import "./App.css";
 
@@ -10,13 +12,19 @@ import JobList from "./JobList";
 import JobDetail from "./JobDetail";
 import CreateJob from "./CreateJob";
 
-const App = () => {
+const App = ({ isUserLoggedIn }) => {
   return (
     <div>
-      <Router>
+      <Router history={history}>
         <Navigation />
         <Switch>
-          <Route path={"/"} exact component={JobList} />
+          <Route
+            path={"/"}
+            exact
+            render={() => {
+              return !isUserLoggedIn ? <Redirect to="/login" /> : <JobList />;
+            }}
+          />
           <Route path={"/login"} component={Login} />
           <Route path={"/register"} component={Registration} />
           <Route path={"/:id"} exact component={JobDetail} />
@@ -27,4 +35,10 @@ const App = () => {
   );
 };
 
-export default App;
+const mapStateToProps = ({ user }) => {
+  return {
+    isUserLoggedIn: user.isLoggedIn
+  };
+};
+
+export default connect(mapStateToProps)(App);
