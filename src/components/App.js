@@ -8,8 +8,8 @@ import "./App.css";
 import Navigation from "./Navigation";
 import Login from "./Login";
 import Registration from "./Registration";
-import JobList from "./JobList";
-import JobDetail from "./JobDetail";
+import JobList from "./Dashboard";
+import JobDetail from "./JobDetails";
 import CreateJob from "./CreateJob";
 
 const App = ({ isUserLoggedIn }) => {
@@ -17,19 +17,21 @@ const App = ({ isUserLoggedIn }) => {
     <div>
       <Router history={history}>
         <Navigation />
-        <Switch>
-          <Route
-            path={"/"}
-            exact
-            render={() => {
-              return !isUserLoggedIn ? <Redirect to="/login" /> : <JobList />;
-            }}
-          />
-          <Route path={"/login"} component={Login} />
-          <Route path={"/register"} component={Registration} />
-          <Route path={"/:id"} exact component={JobDetail} />
-          <Route path={"/create"} component={CreateJob} />
-        </Switch>
+        <div className="container">
+          <Switch>
+            <Route
+              path={"/"}
+              exact
+              render={() => {
+                return !isUserLoggedIn ? <Redirect to="/login" /> : <JobList />;
+              }}
+            />
+            <Route path={"/login"} component={Login} />
+            <Route path={"/register"} component={Registration} />
+            <Route path={"/:id"} exact component={JobDetail} />
+            <Route path={"/create"} component={CreateJob} />
+          </Switch>
+        </div>
       </Router>
     </div>
   );

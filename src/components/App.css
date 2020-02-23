@@ -1,90 +1,193 @@
+/*VARIABLES*/
+
+:root {
+  /*Colors*/
+  --primary-color: #c2d076;
+  --alert-color: #ce4257;
+  --background-dark-color: #111;
+  --background-light-dark-color: #222;
+  --white-color: #fff;
+  /*Fonts*/
+  --heading-font: "Bebas Neue", sans-serif;
+  --regular-font: "Nunito Sans", sans-serif;
+}
+
+
 /*HARD RESET*/
 
 * {
   box-sizing: border-box;
-  font-family: sans-serif;
   margin: 0;
   padding: 0;
 }
 
 body {
-  background-color: #111;
-  margin: auto;
+  background-color: var(--background-dark-color);
 }
 
 nav {
   align-items: center;
-  background-color: #222;
+  background-color: var(--background-light-dark-color);
   display: flex;
   height: 80px;
   justify-content: space-between;
-  padding: 0 20%;
+  padding: 0 10%;
 }
 
 nav a {
-  color: #fff;
-  font-size: 2rem;
+  color: var(--white-color);
   text-decoration: none;
-  text-transform: uppercase;
 }
 
-nav a span {
-  color: #c2d076;
+.app-title-link {
+  font-family: var(--heading-font);
+  font-size: 3rem;
 }
 
-.logout {
-  background-color: #ce4257;
-  border-radius: 7px;
+.app-title-link span {
+  color: var(--primary-color);
+}
+
+.login-logout-button {
+  background-color: var(--alert-color);
+  font-family: var(--regular-font);
   font-size: 1rem;
+  font-weight: 400;
   padding: 10px;
   text-align: center;
   width: 100px;
 }
 
 .container {
-  align-items: center;
-  display: flex;
-  height: calc(100vh - 80px);
-  justify-content: center;
+  margin: auto;
+  padding: 40px 0;
+  width: 80%;
 }
 
-.user-form {
-  background-color: #222;
-  border-radius: 10px;
-  color: #fff;
+.user-access-form {
+  background-color: var(--background-light-dark-color);
   display: flex;
   flex-direction: column;
   padding: 40px;
+  width: 500px;
 }
 
-.user-form h1 {
+.user-access-form h1 {
+  color: var(--white-color);
+  font-family: var(--heading-font);
+  font-size: 3rem;
+  font-weight: 300;
   margin-bottom: 40px;
 }
 
-.user-form input,
-.user-form button {
+.user-access-form input {
   background-color: transparent;
   border-color: transparent;
   border-bottom: 1px solid #333;
-  caret-color: #fff;
-  color: #c2d076;
+  caret-color: #555;
+  color: var(--primary-color);
+  font-family: var(--regular-font);
   font-size: 1rem;
   margin-bottom: 40px;
   outline: none;
   padding: 10px;
-  width: 400px;
 }
 
-.user-form button {
-  background-color: #c2d076;
-  border-radius: 10px;
+.user-access-form button {
+  background-color: var(--primary-color);
+  border-color: transparent;
   color: #333;
   cursor: pointer;
+  font-family: var(--heading-font);
+  font-size: 1.5rem;
+  margin-bottom: 40px;
+  outline: none;
+  padding: 10px;
 }
 
-.user-form a {
-  color: #ce4257;
-  font-size: 0.9rem;
+.login-register-link {
+  color: var(--alert-color);
+  font-family: var(--regular-font);
+  font-size: 1.125rem;
   text-align: right;
   text-decoration: none;
+}
+
+.dashboard-container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.add-task-button {
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+  font-family: var(--regular-font);
+  font-size: 1.25rem;
+  margin: 0 auto 40px auto;
+  padding: 5px 10px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.add-task-button:hover {
+  background-color: var(--primary-color);
+  color: var(--dark-background-color);
+  font-family: var(--regular-font);
+  font-size: 1.25rem;
+  margin: 0 auto 40px auto;
+  padding: 5px 10px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.jobs-lists-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.jobs-list-container {
+  background-color: var(--background-light-dark-color);
+  margin-right: 40px;
+  padding: 20px;
+  width: 300px;
+}
+
+.jobs-list-container:last-child {
+  margin-right: 0;
+}
+
+.jobs-list-container h1 {
+  color: var(--white-color);
+  font-family: var(--heading-font);
+  font-size: 2rem;
+  font-weight: 300;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.job-tag-container {
+  background-color: #333;
+  color: var(--white-color);
+  cursor: pointer;
+  font-family: var(--regular-font);
+  font-size: 0.8rem;
+  font-weight: 300;
+  margin-bottom: 20px;
+  padding: 20px;
+}
+
+.job-tag-container:hover {
+  background-color: #444;
+}
+
+.job-tag-container p:first-child {
+  color: var(--primary-color);
+  font-size: 1rem;
+}
+
+.job-tag-container p:last-child {
+  margin-top: 10px;
+  text-align: right;
 }

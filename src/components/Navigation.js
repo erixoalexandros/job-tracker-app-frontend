@@ -7,10 +7,10 @@ const Navigation = ({ isUserLoggedIn, logoutUser }) => {
   return (
     <div>
       <nav>
-        <Link to={"/"}>
+        <Link className='app-title-link' to={"/"}>
           Job<span>Tracker</span>
         </Link>
-        <Link onClick={logoutUser} className="logout" to={"/login"}>
+        <Link onClick={logoutUser} className="login-logout-button" to={"/login"}>
           {!isUserLoggedIn ? "Login" : "Logout"}
         </Link>
       </nav>

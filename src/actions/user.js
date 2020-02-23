@@ -18,13 +18,12 @@ export const loginUser = (username, password) => async dispatch => {
     }
 
     // Save authentication token in client
-    if (!localStorage.getItem("authToken")) {
-      localStorage.setItem("authToken", authToken);
-    }
+    localStorage.setItem("authToken", authToken);
 
     //Redirect to user dashboard
     history.push("/");
   } catch ({
+    //If error print error message sent from the server
     response: {
       data: { message }
     }
@@ -34,6 +33,8 @@ export const loginUser = (username, password) => async dispatch => {
 };
 
 export const logoutUser = () => {
+  // Remove authentication token in client
+  localStorage.removeItem("authToken");
   return {
     type: LOGOUT_USER
   };
